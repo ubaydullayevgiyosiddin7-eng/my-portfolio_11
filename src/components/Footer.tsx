@@ -1,9 +1,12 @@
 import { motion } from 'framer-motion';
 import { Heart } from 'lucide-react';
-import { personalInfo } from '../data/portfolio';
+import { useTranslation } from 'react-i18next';
+import { usePortfolioData } from '../hooks/usePortfolioData';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const { t } = useTranslation();
+  const { personalInfo } = usePortfolioData();
 
   return (
     <footer className="py-8 bg-[#0a0a0f] border-t border-gray-800">
@@ -16,13 +19,13 @@ const Footer = () => {
         >
           {/* Copyright */}
           <p className="text-gray-500 text-sm">
-            &copy; {currentYear} {personalInfo.name}. Barcha huquqlar himoyalangan.
+            &copy; {currentYear} {personalInfo.name}. {t('footer.rights')}
           </p>
 
           {/* Made with love */}
           <p className="text-gray-500 text-sm flex items-center gap-1">
+            {t('footer.madeWith')}
             <Heart size={14} className="text-teal-500" fill="currentColor" />
-            bilan yaratildi
           </p>
         </motion.div>
       </div>

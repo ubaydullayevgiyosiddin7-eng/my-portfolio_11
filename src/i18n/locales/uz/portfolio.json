@@ -1,0 +1,75 @@
+{
+  "personalInfo": {
+    "name": "G'iyosiddin Ubaydullayev",
+    "role": "AI Engineer & Full-Stack Developer",
+    "description": "AI, Web va Mobile ilovalar yaratish bo'yicha mutaxassis. Zamonaviy texnologiyalar bilan innovatsion yechimlar yarataman.",
+    "location": "O'zbekiston"
+  },
+  "roles": ["AI Engineer", "Full-Stack Developer", "Mobile Developer"],
+  "skills": {
+    "ai": [
+      { "name": "Python", "desc": "ML modellar, API, avtomatlashtirish" },
+      { "name": "Machine Learning", "desc": "Sklearn, XGBoost, tahlil" },
+      { "name": "Deep Learning", "desc": "TensorFlow, PyTorch, CNN" },
+      { "name": "NLP", "desc": "Matn tahlili, chatbotlar" },
+      { "name": "Computer Vision", "desc": "Rasm tahlili, aniqlash" }
+    ],
+    "web": [
+      { "name": "React", "desc": "SPA, Hooks, Context" },
+      { "name": "TypeScript", "desc": "Type-safe kod yozish" },
+      { "name": "Node.js", "desc": "REST API, Express" },
+      { "name": "HTML/CSS", "desc": "Semantic, responsive dizayn" },
+      { "name": "Tailwind CSS", "desc": "Utility-first CSS" }
+    ],
+    "mobile": [
+      { "name": "Flutter", "desc": "Cross-platform ilovalar" },
+      { "name": "Dart", "desc": "OOP, async dasturlash" }
+    ]
+  },
+  "projects": [
+    {
+      "id": 1,
+      "title": "Memora AI",
+      "description": "Altsgeymer kasalligini MRI tasvirlaridan sun'iy intellekt yordamida aniqlash tizimi. 98% aniqlik bilan 4 ta bosqichni (Sog'lom, Juda yengil, O'rtacha, Og'ir) ajratadi. Grad-CAM vizualizatsiyasi orqali shifokorlarga tashxis qo'yishda yordam beradi.",
+      "features": [
+        "98% aniqlik darajasi",
+        "Grad-CAM issiqlik xaritasi",
+        "4 bosqichli tashxis",
+        "Real-time tahlil"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Smart OCR",
+      "description": "Hujjatlarni sun'iy intellekt yordamida aqlli tahlil qilish tizimi. Rasm yoki skaner qilingan hujjatdagi ma'lumotlarni o'qib, raqamli formatga o'tkazadi. Sertifikatlar, shartnomalar va boshqa hujjatlarni soniyalar ichida qayta ishlaydi.",
+      "features": [
+        "Yuqori aniqlikda matn o'qish",
+        "Hujjat turini avtomatik aniqlash",
+        "Ma'lumotlarni strukturalashtirish",
+        "JSON va jadval formatida eksport"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Visara AI",
+      "description": "Vizual qidiruv tizimi — nomi noma'lum tovarlarni rasmdan qidirish imkoniyati. Marketpleyslardan (OLX, Uzum va h.k.) narxlar va sotuvchilarni topadi. Shopping va texnik ehtiyot qismlar qidirish uchun ideal yechim.",
+      "features": [
+        "Rasmdan tovar qidirish",
+        "Marketpleyslardan narxlarni taqqoslash",
+        "Noma'lum ehtiyot qismlarni aniqlash",
+        "Zamonaviy UI/UX dizayn"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Mobil Ilova",
+      "description": "Markaziy Osiyo foydalanuvchilari uchun mo'ljallangan mobil ilova. Ko'p tilli qo'llab-quvvatlash (O'zbek, Qozoq, Qirg'iz, Tojik, Turkman) va zamonaviy UI/UX dizayn. Tez orada e'lon qilinadi!",
+      "features": [
+        "6 tilda interfeys",
+        "Zamonaviy dizayn",
+        "Foydalanuvchi profili",
+        "Tez orada..."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "personalInfo": {
+    "name": "Giyosiddin Ubaydullayev",
+    "role": "AI Engineer & Full-Stack Developer",
+    "description": "Specialist in creating AI, Web, and Mobile applications. I create innovative solutions with modern technologies.",
+    "location": "Uzbekistan"
+  },
+  "roles": ["AI Engineer", "Full-Stack Developer", "Mobile Developer"],
+  "skills": {
+    "ai": [
+      { "name": "Python", "desc": "ML models, API, automation" },
+      { "name": "Machine Learning", "desc": "Sklearn, XGBoost, analysis" },
+      { "name": "Deep Learning", "desc": "TensorFlow, PyTorch, CNN" },
+      { "name": "NLP", "desc": "Text analysis, chatbots" },
+      { "name": "Computer Vision", "desc": "Image analysis, detection" }
+    ],
+    "web": [
+      { "name": "React", "desc": "SPA, Hooks, Context" },
+      { "name": "TypeScript", "desc": "Type-safe coding" },
+      { "name": "Node.js", "desc": "REST API, Express" },
+      { "name": "HTML/CSS", "desc": "Semantic, responsive design" },
+      { "name": "Tailwind CSS", "desc": "Utility-first CSS" }
+    ],
+    "mobile": [
+      { "name": "Flutter", "desc": "Cross-platform apps" },
+      { "name": "Dart", "desc": "OOP, async programming" }
+    ]
+  },
+  "projects": [
+    {
+      "id": 1,
+      "title": "Memora AI",
+      "description": "A system for detecting Alzheimer's disease from MRI images using artificial intelligence. Distinguishes 4 stages (Healthy, Very Mild, Moderate, Severe) with 98% accuracy. Helps doctors diagnose through Grad-CAM visualization.",
+      "features": [
+        "98% accuracy rate",
+        "Grad-CAM heat map",
+        "4-stage diagnosis",
+        "Real-time analysis"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Smart OCR",
+      "description": "Intelligent document analysis system using AI. Reads data from images or scanned documents and converts to digital format. Processes certificates, contracts, and other documents in seconds.",
+      "features": [
+        "High-accuracy text reading",
+        "Automatic document type detection",
+        "Data structuring",
+        "Export to JSON and table format"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Visara AI",
+      "description": "Visual search system - ability to search for products from images when the name is unknown. Finds prices and sellers from marketplaces (OLX, Uzum, etc.). Ideal solution for shopping and spare parts search.",
+      "features": [
+        "Product search from image",
+        "Price comparison from marketplaces",
+        "Unknown spare parts identification",
+        "Modern UI/UX design"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Mobile App",
+      "description": "Mobile app designed for Central Asian users. Multi-language support (Uzbek, Kazakh, Kyrgyz, Tajik, Turkmen) and modern UI/UX design. Coming soon!",
+      "features": [
+        "Interface in 6 languages",
+        "Modern design",
+        "User profile",
+        "Coming soon..."
+      ]
+    }
+  ]
+}

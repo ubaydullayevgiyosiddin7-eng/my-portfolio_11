@@ -2,33 +2,35 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Code, Brain, Smartphone, Calendar, FolderGit2, Layers, Target } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const About = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const { t } = useTranslation();
 
   const stats = [
-    { number: "98%", label: "AI model aniqligi", icon: Target },
-    { number: "4+", label: "Production loyiha", icon: FolderGit2 },
-    { number: "6", label: "Til qo'llab-quvvatlash", icon: Layers },
-    { number: "3", label: "Soha (AI, Web, Mobile)", icon: Calendar },
+    { number: "98%", label: t('about.stats.accuracy'), icon: Target },
+    { number: "4+", label: t('about.stats.projects'), icon: FolderGit2 },
+    { number: "6", label: t('about.stats.languages'), icon: Layers },
+    { number: "3", label: t('about.stats.fields'), icon: Calendar },
   ];
 
   const cards = [
     {
       icon: Brain,
-      title: "AI & Machine Learning",
-      description: "Sun'iy intellekt va Machine Learning sohasida loyihalar yarataman. NLP, Computer Vision va Deep Learning texnologiyalari bilan ishlayman.",
+      title: t('about.services.ai.title'),
+      description: t('about.services.ai.description'),
     },
     {
       icon: Code,
-      title: "Web Development",
-      description: "Zamonaviy web ilovalar yarataman. React, TypeScript, Node.js va boshqa texnologiyalar bilan full-stack development.",
+      title: t('about.services.web.title'),
+      description: t('about.services.web.description'),
     },
     {
       icon: Smartphone,
-      title: "Mobile Development",
-      description: "Flutter yordamida cross-platform mobil ilovalar yarataman. Android va iOS uchun bir koddan ishlaydigan ilovalar.",
+      title: t('about.services.mobile.title'),
+      description: t('about.services.mobile.description'),
     },
   ];
 
@@ -43,7 +45,7 @@ const About = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            Men <span className="text-teal-400">haqimda</span>
+            {t('about.title')} <span className="text-teal-400">{t('about.titleHighlight')}</span>
           </h2>
           <div className="w-20 h-1 bg-teal-500 mx-auto rounded-full" />
         </motion.div>
@@ -57,17 +59,13 @@ const About = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <p className="text-gray-400 text-lg leading-relaxed mb-6">
-              Salom! Men G'iyosiddin, O'zbekistonlik dasturchi. Asosan sun'iy intellekt (AI) sohasida
-              ishlayman va bu soha menga juda qiziqarli. Shu bilan birga web va mobil ilovalar
-              yaratish tajribam ham bor.
+              {t('about.intro')}
             </p>
             <p className="text-gray-400 text-lg leading-relaxed mb-6">
-              Har doim yangi texnologiyalarni o'rganishga va murakkab muammolarni hal qilishga
-              intilaman. Mening maqsadim - texnologiya orqali odamlar hayotini yaxshilash.
+              {t('about.passion')}
             </p>
             <p className="text-gray-400 text-lg leading-relaxed">
-              Hozirda yangi loyihalar ustida ishlayman va AI sohasida chuqurroq bilim olish
-              uchun o'z ustimda ishlamoqdaman.
+              {t('about.current')}
             </p>
           </motion.div>
 
@@ -80,7 +78,7 @@ const About = () => {
           >
             {stats.map((stat, index) => (
               <motion.div
-                key={stat.label}
+                key={index}
                 initial={{ opacity: 0, scale: 0.5 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
@@ -112,7 +110,7 @@ const About = () => {
         <div className="grid md:grid-cols-3 gap-8">
           {cards.map((card, index) => (
             <motion.div
-              key={card.title}
+              key={index}
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}

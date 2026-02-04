@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
-import { navLinks } from '../data/portfolio';
+import { usePortfolioData } from '../hooks/usePortfolioData';
+import LanguageSwitcher from './LanguageSwitcher';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { navLinks, personalInfo } = usePortfolioData();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,14 +34,14 @@ const Navbar = () => {
             className="text-2xl font-bold bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text text-transparent"
             whileHover={{ scale: 1.05 }}
           >
-            G'iyosiddin
+            {personalInfo.name.split(' ')[0]}
           </motion.a>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link, index) => (
               <motion.a
-                key={link.name}
+                key={link.href}
                 href={link.href}
                 className="text-gray-300 hover:text-white transition-colors relative group"
                 initial={{ opacity: 0, y: -20 }}
@@ -50,15 +52,19 @@ const Navbar = () => {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-teal-500 transition-all group-hover:w-full" />
               </motion.a>
             ))}
+            <LanguageSwitcher />
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-gray-300 hover:text-white"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <div className="md:hidden flex items-center gap-3">
+            <LanguageSwitcher />
+            <button
+              className="text-gray-300 hover:text-white"
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
@@ -71,7 +77,7 @@ const Navbar = () => {
           >
             {navLinks.map((link) => (
               <a
-                key={link.name}
+                key={link.href}
                 href={link.href}
                 className="block py-2 text-gray-300 hover:text-white transition-colors"
                 onClick={() => setIsOpen(false)}

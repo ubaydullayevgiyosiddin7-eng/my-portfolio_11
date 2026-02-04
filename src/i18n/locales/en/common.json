@@ -1,0 +1,76 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "welcome": "Welcome to my portfolio",
+    "viewProjects": "View My Projects",
+    "contactMe": "Contact Me",
+    "openToWork": "Open to work"
+  },
+  "about": {
+    "title": "About",
+    "titleHighlight": "Me",
+    "stats": {
+      "accuracy": "AI model accuracy",
+      "projects": "Production projects",
+      "languages": "Language support",
+      "fields": "Fields (AI, Web, Mobile)"
+    },
+    "intro": "Hello! I'm Giyosiddin, a developer from Uzbekistan. I mainly work in artificial intelligence (AI) and this field truly interests me. I also have experience in web and mobile development.",
+    "passion": "I always strive to learn new technologies and solve complex problems. My goal is to improve people's lives through technology.",
+    "current": "Currently, I'm working on new projects and improving my knowledge in AI.",
+    "services": {
+      "ai": {
+        "title": "AI & Machine Learning",
+        "description": "I create projects in artificial intelligence and Machine Learning. I work with NLP, Computer Vision, and Deep Learning technologies."
+      },
+      "web": {
+        "title": "Web Development",
+        "description": "I create modern web applications. Full-stack development with React, TypeScript, Node.js, and other technologies."
+      },
+      "mobile": {
+        "title": "Mobile Development",
+        "description": "I create cross-platform mobile applications with Flutter. Apps that work on both Android and iOS from a single codebase."
+      }
+    }
+  },
+  "skills": {
+    "title": "My",
+    "titleHighlight": "Skills",
+    "tools": "Tools",
+    "categories": {
+      "ai": "AI & Machine Learning",
+      "web": "Web Development",
+      "mobile": "Mobile Development"
+    }
+  },
+  "projects": {
+    "title": "My",
+    "titleHighlight": "Projects",
+    "expand": "Expand",
+    "comingSoon": "Coming Soon",
+    "emptyState": "Projects coming soon..."
+  },
+  "contact": {
+    "title": "Get in",
+    "titleHighlight": "Touch",
+    "writeToMe": "Write to me",
+    "connectViaTelegram": "Connect via Telegram",
+    "sendMessage": "Send Message",
+    "followOnSocial": "Follow on social media",
+    "socialDescriptions": {
+      "linkedin": "Professional network",
+      "github": "My code and projects",
+      "telegram": "News and posts"
+    }
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "madeWith": "Made with"
+  }
+}

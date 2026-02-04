@@ -2,15 +2,18 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import { ExternalLink, Play, X, Check, Lock } from 'lucide-react';
-import { projects } from '../data/portfolio';
+import { useTranslation } from 'react-i18next';
+import { usePortfolioData } from '../hooks/usePortfolioData';
 
 // Video component with auto-play on view
 const AutoPlayVideo = ({
   src,
-  onClick
+  onClick,
+  expandText
 }: {
   src: string;
   onClick: () => void;
+  expandText: string;
 }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -50,7 +53,7 @@ const AutoPlayVideo = ({
 
       {/* Expand hint on hover */}
       <div className="absolute bottom-4 right-4 px-3 py-1.5 bg-black/60 backdrop-blur-sm rounded-lg text-sm opacity-0 group-hover:opacity-100 transition-opacity">
-        Kattalashtirish
+        {expandText}
       </div>
     </div>
   );
@@ -60,11 +63,13 @@ const AutoPlayVideo = ({
 const ImageGallery = ({
   images,
   isSecret,
-  onImageClick
+  onImageClick,
+  comingSoonText
 }: {
   images: string[];
   isSecret?: boolean;
   onImageClick: (src: string) => void;
+  comingSoonText: string;
 }) => {
   return (
     <div className="relative h-full min-h-[400px] bg-gradient-to-br from-[#1a1a24] to-[#12121a] flex items-center justify-center p-4">
@@ -99,7 +104,7 @@ const ImageGallery = ({
       {isSecret && (
         <div className="absolute top-4 right-4 flex items-center gap-2 px-3 py-1.5 bg-purple-500/20 backdrop-blur-sm rounded-full border border-purple-500/30">
           <Lock size={14} className="text-purple-400" />
-          <span className="text-purple-300 text-sm font-medium">Coming Soon</span>
+          <span className="text-purple-300 text-sm font-medium">{comingSoonText}</span>
         </div>
       )}
 
@@ -111,6 +116,8 @@ const Projects = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [selectedMedia, setSelectedMedia] = useState<{ type: 'video' | 'image'; src: string } | null>(null);
+  const { t } = useTranslation();
+  const { projects } = usePortfolioData();
 
   return (
     <section id="projects" className="py-20 bg-[#0a0a0f]" ref={ref}>
@@ -123,7 +130,7 @@ const Projects = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            Mening <span className="text-teal-400">loyihalarim</span>
+            {t('projects.title')} <span className="text-teal-400">{t('projects.titleHighlight')}</span>
           </h2>
           <div className="w-20 h-1 bg-teal-500 mx-auto rounded-full" />
         </motion.div>
@@ -206,6 +213,7 @@ const Projects = () => {
                   <AutoPlayVideo
                     src={project.video}
                     onClick={() => setSelectedMedia({ type: 'video', src: project.video! })}
+                    expandText={t('projects.expand')}
                   />
                 )}
                 {project.images && (
@@ -213,6 +221,7 @@ const Projects = () => {
                     images={project.images}
                     isSecret={project.isSecret}
                     onImageClick={(src) => setSelectedMedia({ type: 'image', src })}
+                    comingSoonText={t('projects.comingSoon')}
                   />
                 )}
               </div>
@@ -227,7 +236,7 @@ const Projects = () => {
             animate={isInView ? { opacity: 1 } : {}}
             className="text-center py-20"
           >
-            <p className="text-gray-500 text-lg">Loyihalar tez orada qo'shiladi...</p>
+            <p className="text-gray-500 text-lg">{t('projects.emptyState')}</p>
           </motion.div>
         )}
 

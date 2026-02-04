@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Send, ChevronDown, Sparkles } from 'lucide-react';
-import { personalInfo, socialLinks } from '../data/portfolio';
+import { useTranslation } from 'react-i18next';
+import { usePortfolioData } from '../hooks/usePortfolioData';
 
 // Floating shapes component
 const FloatingShapes = () => {
@@ -34,32 +35,141 @@ const FloatingShapes = () => {
         transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      {/* Small floating particles */}
-      {[...Array(6)].map((_, i) => (
+      {/* Floating particles - left side */}
+      {[...Array(8)].map((_, i) => (
         <motion.div
-          key={i}
-          className="absolute w-2 h-2 bg-teal-400/30 rounded-full"
+          key={`left-${i}`}
+          className="absolute w-1.5 h-1.5 bg-teal-400/40 rounded-full"
           style={{
-            top: `${20 + i * 15}%`,
-            left: `${10 + i * 15}%`,
+            top: `${15 + i * 10}%`,
+            left: `${5 + i * 5}%`,
           }}
           animate={{
-            y: [0, -20, 0],
-            opacity: [0.3, 0.6, 0.3],
+            y: [0, -30, 0],
+            x: [0, 10, 0],
+            opacity: [0.2, 0.6, 0.2],
+            scale: [1, 1.5, 1],
           }}
           transition={{
-            duration: 3 + i,
+            duration: 4 + i * 0.5,
             repeat: Infinity,
-            delay: i * 0.5,
+            delay: i * 0.3,
           }}
         />
       ))}
+
+      {/* Floating particles - right side */}
+      {[...Array(6)].map((_, i) => (
+        <motion.div
+          key={`right-${i}`}
+          className="absolute w-2 h-2 bg-cyan-400/30 rounded-full"
+          style={{
+            top: `${20 + i * 12}%`,
+            right: `${8 + i * 4}%`,
+          }}
+          animate={{
+            y: [0, -25, 0],
+            x: [0, -15, 0],
+            opacity: [0.3, 0.7, 0.3],
+          }}
+          transition={{
+            duration: 3 + i * 0.7,
+            repeat: Infinity,
+            delay: i * 0.4,
+          }}
+        />
+      ))}
+
+      {/* Code-like floating elements */}
+      {['</', '/>', '{}', '()', '[]'].map((symbol, i) => (
+        <motion.span
+          key={symbol}
+          className="absolute text-teal-500/20 font-mono text-2xl"
+          style={{
+            top: `${25 + i * 15}%`,
+            left: `${3 + i * 8}%`,
+          }}
+          animate={{
+            y: [0, -20, 0],
+            opacity: [0.1, 0.3, 0.1],
+            rotate: [0, 10, 0],
+          }}
+          transition={{
+            duration: 5 + i,
+            repeat: Infinity,
+            delay: i * 0.5,
+          }}
+        >
+          {symbol}
+        </motion.span>
+      ))}
+
+      {/* Pulsing corner dots */}
+      <motion.div
+        className="absolute top-32 right-32 w-3 h-3 bg-teal-400/50 rounded-full"
+        animate={{
+          scale: [1, 2, 1],
+          opacity: [0.5, 0.2, 0.5],
+        }}
+        transition={{ duration: 2, repeat: Infinity }}
+      />
+      <motion.div
+        className="absolute bottom-40 left-20 w-2 h-2 bg-cyan-400/50 rounded-full"
+        animate={{
+          scale: [1, 2.5, 1],
+          opacity: [0.5, 0.1, 0.5],
+        }}
+        transition={{ duration: 2.5, repeat: Infinity, delay: 0.5 }}
+      />
     </div>
   );
 };
 
+// Orbiting dots around profile image
+const OrbitingDots = () => {
+  const dots = [
+    { size: 'w-3 h-3', color: 'bg-teal-400', orbit: '-inset-6', duration: 8 },
+    { size: 'w-2 h-2', color: 'bg-cyan-400', orbit: '-inset-10', duration: 12 },
+    { size: 'w-2.5 h-2.5', color: 'bg-emerald-400', orbit: '-inset-14', duration: 15 },
+    { size: 'w-1.5 h-1.5', color: 'bg-teal-300', orbit: '-inset-8', duration: 10 },
+  ];
+
+  return (
+    <>
+      {dots.map((dot, i) => (
+        <motion.div
+          key={i}
+          className={`absolute ${dot.orbit} rounded-full pointer-events-none`}
+          animate={{ rotate: i % 2 === 0 ? 360 : -360 }}
+          transition={{ duration: dot.duration, repeat: Infinity, ease: "linear" }}
+        >
+          <div
+            className={`absolute ${dot.size} ${dot.color} rounded-full shadow-lg`}
+            style={{
+              top: '50%',
+              left: i % 2 === 0 ? '0%' : '100%',
+              transform: 'translate(-50%, -50%)',
+              boxShadow: `0 0 10px ${dot.color.includes('teal') ? '#14b8a6' : dot.color.includes('cyan') ? '#22d3ee' : '#34d399'}`,
+            }}
+          />
+          {/* Second dot on opposite side */}
+          <div
+            className={`absolute ${dot.size} ${dot.color}/60 rounded-full`}
+            style={{
+              top: '50%',
+              left: i % 2 === 0 ? '100%' : '0%',
+              transform: 'translate(-50%, -50%)',
+            }}
+          />
+        </motion.div>
+      ))}
+    </>
+  );
+};
+
 const Hero = () => {
-  const roles = ["AI Engineer", "Full-Stack Developer", "Mobile Developer"];
+  const { t } = useTranslation();
+  const { personalInfo, roles, socialLinks } = usePortfolioData();
 
   return (
     <section
@@ -84,8 +194,13 @@ const Hero = () => {
               transition={{ duration: 0.5 }}
               className="inline-flex items-center gap-2 px-4 py-2 bg-teal-500/10 border border-teal-500/20 rounded-full mb-6"
             >
-              <Sparkles size={16} className="text-teal-400" />
-              <span className="text-teal-300 text-sm">Portfolioga xush kelibsiz</span>
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+              >
+                <Sparkles size={16} className="text-teal-400" />
+              </motion.div>
+              <span className="text-teal-300 text-sm">{t('hero.welcome')}</span>
             </motion.div>
 
             {/* Name */}
@@ -113,10 +228,11 @@ const Hero = () => {
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.3, delay: 0.3 + index * 0.1 }}
-                  className={`px-4 py-1.5 rounded-full text-sm font-medium ${
+                  whileHover={{ scale: 1.05 }}
+                  className={`px-4 py-1.5 rounded-full text-sm font-medium cursor-default ${
                     index === 0
-                      ? 'bg-gradient-to-r from-teal-500 to-cyan-500 text-white'
-                      : 'bg-[#1a1a24] text-gray-300 border border-gray-700'
+                      ? 'bg-gradient-to-r from-teal-500 to-cyan-500 text-white shadow-lg shadow-teal-500/30'
+                      : 'bg-[#1a1a24] text-gray-300 border border-gray-700 hover:border-teal-500/50'
                   }`}
                 >
                   {role}
@@ -174,18 +290,22 @@ const Hero = () => {
               transition={{ duration: 0.5, delay: 0.6 }}
               className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4"
             >
-              <a
+              <motion.a
                 href="#projects"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 className="px-8 py-3 bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600 rounded-full font-medium transition-all text-center shadow-lg shadow-teal-500/25"
               >
-                Loyihalarimni ko'rish
-              </a>
-              <a
+                {t('hero.viewProjects')}
+              </motion.a>
+              <motion.a
                 href="#contact"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 className="px-8 py-3 bg-[#1a1a24] border border-teal-500/50 hover:bg-teal-500/20 hover:border-teal-400 rounded-full font-medium transition-all text-center"
               >
-                Bog'lanish
-              </a>
+                {t('hero.contactMe')}
+              </motion.a>
             </motion.div>
           </motion.div>
 
@@ -197,7 +317,10 @@ const Hero = () => {
             className="flex justify-center lg:justify-end"
           >
             <div className="relative">
-              {/* Animated ring */}
+              {/* Orbiting dots */}
+              <OrbitingDots />
+
+              {/* Animated rings */}
               <motion.div
                 className="absolute -inset-4 rounded-full border border-teal-500/20"
                 animate={{ rotate: 360 }}
@@ -208,9 +331,21 @@ const Hero = () => {
                 animate={{ rotate: -360 }}
                 transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
               />
+              <motion.div
+                className="absolute -inset-12 rounded-full border border-dashed border-teal-500/10"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+              />
 
               {/* Glow effect */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-teal-500/30 to-cyan-500/30 rounded-full blur-xl" />
+              <motion.div
+                className="absolute -inset-1 bg-gradient-to-r from-teal-500/30 to-cyan-500/30 rounded-full blur-xl"
+                animate={{
+                  scale: [1, 1.1, 1],
+                  opacity: [0.5, 0.8, 0.5],
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
+              />
 
               {/* Profile image container */}
               <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-[#1a1a24]">
@@ -237,8 +372,12 @@ const Hero = () => {
                 transition={{ duration: 0.5, delay: 0.8 }}
                 className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-4 py-2 bg-[#12121a] border border-teal-500/30 rounded-full flex items-center gap-2"
               >
-                <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                <span className="text-sm text-gray-300">Open to work</span>
+                <motion.span
+                  className="w-2 h-2 bg-green-500 rounded-full"
+                  animate={{ scale: [1, 1.5, 1], opacity: [1, 0.5, 1] }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                />
+                <span className="text-sm text-gray-300">{t('hero.openToWork')}</span>
               </motion.div>
             </div>
           </motion.div>

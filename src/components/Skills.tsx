@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { skills } from '../data/portfolio';
+import { useTranslation } from 'react-i18next';
+import { usePortfolioData } from '../hooks/usePortfolioData';
 import type { SkillLevel } from '../data/portfolio';
 
 const levelStyles: Record<SkillLevel, string> = {
@@ -46,6 +47,8 @@ const SkillItem = ({ name, level, desc, delay }: { name: string; level: SkillLev
 const Skills = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const { t } = useTranslation();
+  const { skills } = usePortfolioData();
 
   return (
     <section id="skills" className="py-20 bg-[#12121a]" ref={ref}>
@@ -58,7 +61,7 @@ const Skills = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            Mening <span className="text-teal-400">ko'nikmalarim</span>
+            {t('skills.title')} <span className="text-teal-400">{t('skills.titleHighlight')}</span>
           </h2>
           <div className="w-20 h-1 bg-teal-500 mx-auto rounded-full mb-8" />
 
@@ -83,7 +86,7 @@ const Skills = () => {
           >
             <h3 className="text-xl font-semibold mb-6 flex items-center">
               <span className="w-3 h-3 bg-teal-500 rounded-full mr-3" />
-              AI & Machine Learning
+              {t('skills.categories.ai')}
             </h3>
             {skills.ai.map((skill, index) => (
               <SkillItem key={skill.name} {...skill} delay={0.3 + index * 0.1} />
@@ -99,7 +102,7 @@ const Skills = () => {
           >
             <h3 className="text-xl font-semibold mb-6 flex items-center">
               <span className="w-3 h-3 bg-cyan-500 rounded-full mr-3" />
-              Web Development
+              {t('skills.categories.web')}
             </h3>
             {skills.web.map((skill, index) => (
               <SkillItem key={skill.name} {...skill} delay={0.3 + index * 0.1} />
@@ -115,14 +118,14 @@ const Skills = () => {
           >
             <h3 className="text-xl font-semibold mb-6 flex items-center">
               <span className="w-3 h-3 bg-emerald-500 rounded-full mr-3" />
-              Mobile Development
+              {t('skills.categories.mobile')}
             </h3>
             {skills.mobile.map((skill, index) => (
               <SkillItem key={skill.name} {...skill} delay={0.3 + index * 0.1} />
             ))}
 
             {/* Tools */}
-            <h4 className="text-lg font-medium mt-8 mb-4 text-gray-300">Qurollar</h4>
+            <h4 className="text-lg font-medium mt-8 mb-4 text-gray-300">{t('skills.tools')}</h4>
             <div className="flex flex-wrap gap-2">
               {skills.tools.map((tool, index) => (
                 <motion.span

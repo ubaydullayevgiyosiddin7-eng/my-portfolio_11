@@ -2,11 +2,14 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Send, MapPin, Github, Linkedin, ExternalLink } from 'lucide-react';
-import { personalInfo, socialLinks } from '../data/portfolio';
+import { useTranslation } from 'react-i18next';
+import { usePortfolioData } from '../hooks/usePortfolioData';
 
 const Contact = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const { t } = useTranslation();
+  const { personalInfo, socialLinks } = usePortfolioData();
 
   const socialPlatforms = [
     {
@@ -14,21 +17,21 @@ const Contact = () => {
       icon: Linkedin,
       url: socialLinks.linkedin,
       color: 'hover:bg-[#0077B5] hover:border-[#0077B5]',
-      description: 'Professional tarmoq',
+      description: t('contact.socialDescriptions.linkedin'),
     },
     {
       name: 'GitHub',
       icon: Github,
       url: socialLinks.github,
       color: 'hover:bg-[#333] hover:border-[#333]',
-      description: 'Kodlarim va loyihalar',
+      description: t('contact.socialDescriptions.github'),
     },
     {
-      name: 'Telegram Kanal',
+      name: 'Telegram',
       icon: Send,
       url: socialLinks.telegram,
       color: 'hover:bg-[#0088CC] hover:border-[#0088CC]',
-      description: 'Yangiliklar va postlar',
+      description: t('contact.socialDescriptions.telegram'),
     },
   ];
 
@@ -43,7 +46,7 @@ const Contact = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl sm:text-5xl font-bold mb-6">
-            Men bilan <span className="text-teal-400">bog'lanish</span>
+            {t('contact.title')} <span className="text-teal-400">{t('contact.titleHighlight')}</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-teal-500 to-cyan-500 mx-auto rounded-full" />
         </motion.div>
@@ -67,13 +70,13 @@ const Contact = () => {
                   <Send size={28} className="text-teal-400" />
                 </div>
                 <div className="text-center sm:text-left">
-                  <h3 className="text-xl font-semibold text-white mb-1">Menga yozing</h3>
-                  <p className="text-gray-400">Telegram orqali bog'laning</p>
+                  <h3 className="text-xl font-semibold text-white mb-1">{t('contact.writeToMe')}</h3>
+                  <p className="text-gray-400">{t('contact.connectViaTelegram')}</p>
                   <p className="text-teal-400 font-medium mt-1">{socialLinks.telegramUsername}</p>
                 </div>
               </div>
               <div className="flex items-center gap-2 text-teal-400 group-hover:translate-x-2 transition-transform">
-                <span className="font-medium">Xabar yuborish</span>
+                <span className="font-medium">{t('contact.sendMessage')}</span>
                 <ExternalLink size={20} />
               </div>
             </div>
@@ -88,7 +91,7 @@ const Contact = () => {
           className="mb-16"
         >
           <h3 className="text-center text-gray-400 text-sm uppercase tracking-wider mb-8">
-            Ijtimoiy tarmoqlarda kuzating
+            {t('contact.followOnSocial')}
           </h3>
           <div className="grid sm:grid-cols-3 gap-4">
             {socialPlatforms.map((platform, index) => (

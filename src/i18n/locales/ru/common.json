@@ -1,0 +1,76 @@
+{
+  "nav": {
+    "home": "Главная",
+    "about": "Обо мне",
+    "skills": "Навыки",
+    "projects": "Проекты",
+    "contact": "Контакты"
+  },
+  "hero": {
+    "welcome": "Добро пожаловать в моё портфолио",
+    "viewProjects": "Мои проекты",
+    "contactMe": "Связаться",
+    "openToWork": "Open to work"
+  },
+  "about": {
+    "title": "Обо",
+    "titleHighlight": "мне",
+    "stats": {
+      "accuracy": "Точность AI модели",
+      "projects": "Production проекты",
+      "languages": "Поддержка языков",
+      "fields": "Сферы (AI, Web, Mobile)"
+    },
+    "intro": "Привет! Я Гиёсиддин, разработчик из Узбекистана. В основном работаю в сфере искусственного интеллекта (AI) и эта область меня очень интересует. Также имею опыт в веб и мобильной разработке.",
+    "passion": "Я всегда стремлюсь изучать новые технологии и решать сложные задачи. Моя цель - улучшать жизнь людей с помощью технологий.",
+    "current": "Сейчас работаю над новыми проектами и совершенствую свои знания в области AI.",
+    "services": {
+      "ai": {
+        "title": "AI & Machine Learning",
+        "description": "Создаю проекты в области искусственного интеллекта и машинного обучения. Работаю с NLP, Computer Vision и Deep Learning технологиями."
+      },
+      "web": {
+        "title": "Web Development",
+        "description": "Создаю современные веб-приложения. Full-stack разработка с React, TypeScript, Node.js и другими технологиями."
+      },
+      "mobile": {
+        "title": "Mobile Development",
+        "description": "Создаю кроссплатформенные мобильные приложения на Flutter. Приложения работающие на Android и iOS из одной кодовой базы."
+      }
+    }
+  },
+  "skills": {
+    "title": "Мои",
+    "titleHighlight": "навыки",
+    "tools": "Инструменты",
+    "categories": {
+      "ai": "AI & Machine Learning",
+      "web": "Web Development",
+      "mobile": "Mobile Development"
+    }
+  },
+  "projects": {
+    "title": "Мои",
+    "titleHighlight": "проекты",
+    "expand": "Увеличить",
+    "comingSoon": "Скоро",
+    "emptyState": "Проекты скоро появятся..."
+  },
+  "contact": {
+    "title": "Связаться",
+    "titleHighlight": "со мной",
+    "writeToMe": "Напишите мне",
+    "connectViaTelegram": "Свяжитесь через Telegram",
+    "sendMessage": "Отправить сообщение",
+    "followOnSocial": "Подписывайтесь в соцсетях",
+    "socialDescriptions": {
+      "linkedin": "Профессиональная сеть",
+      "github": "Мой код и проекты",
+      "telegram": "Новости и посты"
+    }
+  },
+  "footer": {
+    "rights": "Все права защищены.",
+    "madeWith": "Сделано с"
+  }
+}

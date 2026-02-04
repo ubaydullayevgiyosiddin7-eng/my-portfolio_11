@@ -1,0 +1,76 @@
+{
+  "nav": {
+    "home": "Bosh sahifa",
+    "about": "Haqimda",
+    "skills": "Ko'nikmalar",
+    "projects": "Loyihalar",
+    "contact": "Aloqa"
+  },
+  "hero": {
+    "welcome": "Portfolioga xush kelibsiz",
+    "viewProjects": "Loyihalarimni ko'rish",
+    "contactMe": "Bog'lanish",
+    "openToWork": "Open to work"
+  },
+  "about": {
+    "title": "Men",
+    "titleHighlight": "haqimda",
+    "stats": {
+      "accuracy": "AI model aniqligi",
+      "projects": "Production loyiha",
+      "languages": "Til qo'llab-quvvatlash",
+      "fields": "Soha (AI, Web, Mobile)"
+    },
+    "intro": "Salom! Men G'iyosiddin, O'zbekistonlik dasturchiman. Asosan sun'iy intellekt (AI) sohasida ishlayman va bu soha menga juda qiziq. Web va mobile dasturlash tajribam ham bor.",
+    "passion": "Men doimo yangi texnologiyalarni o'rganishga va murakkab muammolarni hal qilishga intilamаn. Mening maqsadim - texnologiya orqali odamlar hayotini yaxshilash.",
+    "current": "Hozirda yangi loyihalar ustida ishlayman va AI sohasidagi bilimlarimni oshirib boraman.",
+    "services": {
+      "ai": {
+        "title": "AI & Machine Learning",
+        "description": "Sun'iy intellekt va Machine Learning sohasida loyihalar yarataman. NLP, Computer Vision va Deep Learning texnologiyalari bilan ishlayman."
+      },
+      "web": {
+        "title": "Web Development",
+        "description": "Zamonaviy web ilovalar yarataman. React, TypeScript, Node.js va boshqa texnologiyalar bilan full-stack development."
+      },
+      "mobile": {
+        "title": "Mobile Development",
+        "description": "Flutter yordamida cross-platform mobil ilovalar yarataman. Android va iOS uchun bir koddan ishlaydigan ilovalar."
+      }
+    }
+  },
+  "skills": {
+    "title": "Mening",
+    "titleHighlight": "ko'nikmalarim",
+    "tools": "Qurollar",
+    "categories": {
+      "ai": "AI & Machine Learning",
+      "web": "Web Development",
+      "mobile": "Mobile Development"
+    }
+  },
+  "projects": {
+    "title": "Mening",
+    "titleHighlight": "loyihalarim",
+    "expand": "Kattalashtirish",
+    "comingSoon": "Tez orada",
+    "emptyState": "Loyihalar tez orada qo'shiladi..."
+  },
+  "contact": {
+    "title": "Men bilan",
+    "titleHighlight": "bog'lanish",
+    "writeToMe": "Menga yozing",
+    "connectViaTelegram": "Telegram orqali bog'laning",
+    "sendMessage": "Xabar yuborish",
+    "followOnSocial": "Ijtimoiy tarmoqlarda kuzating",
+    "socialDescriptions": {
+      "linkedin": "Professional tarmoq",
+      "github": "Kodlarim va loyihalar",
+      "telegram": "Yangiliklar va postlar"
+    }
+  },
+  "footer": {
+    "rights": "Barcha huquqlar himoyalangan.",
+    "madeWith": "bilan yaratildi"
+  }
+}
